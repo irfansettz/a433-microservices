@@ -1,7 +1,7 @@
 version: '2'  # Menggunakan Docker Compose versi 2 atau lebih
 services:
   item-app:
-    image: item-app # Menggunakan image item-app 
+    image: irfansettz/item-app:v1 # Menggunakan image item-app 
     command: sh -c "npm install --production --unsafe-perm && npm run build && npm start" # command install dan start
     ports: 
       - "80:80" # Melakukan port mapping agar dapat diakses dari port 80 di host
