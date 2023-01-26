@@ -4,7 +4,7 @@ services:
     image: irfansettz/item-app:v1 # Menggunakan image item-app 
     command: sh -c "npm install --production --unsafe-perm && npm run build && npm start" # command install dan start
     ports: 
-      - "80:80" # Melakukan port mapping agar dapat diakses dari port 80 di host
+      - "80:8080" # Melakukan port mapping agar dapat diakses dari port 80 di host
     depends_on:
       - item-db # Pastikan item-app hanya berjalan setelah item-db diluncurkan
     restart: unless-stopped # container akan di-restart kecuali jika diberhentikan secara sengaja
