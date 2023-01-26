@@ -6,10 +6,11 @@ services:
       - "8882:80" # Melakukan port mapping agar dapat diakses dari port 80 di host, saya ganti port 8882 karena port 80 sudah di pakai
     depends_on:
       - item-db # Pastikan item-app hanya berjalan setelah item-db diluncurkan
+    restart: unless-stopped # container akan di-restart kecuali jika diberhentikan secara sengaja
   item-db:
     image: mongo:3 # Menggunakan image mongo:3 dari Docker Hub
     volumes:
       - app-db:/data/db # Memakai volume bernama app-db dengan target /data/db di container
-   
+    restart: unless-stopped # container akan di-restart kecuali jika diberhentikan secara sengaja
 volumes:
   app-db:
