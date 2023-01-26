@@ -1,0 +1,14 @@
+version: '2'  # Menggunakan Docker Compose versi 2 atau lebih
+services:
+  item-app:
+    image: item-app # Menggunakan image item-app 
+    ports: 
+      - "8080:80" # Melakukan port mapping 
+    depends_on:
+      - item-db # Pastikan item-app hanya berjalan setelah item-db diluncurkan
+  item-db:
+    image: mongo:3 # Menggunakan image mongo:3 dari Docker Hub
+    volumes:
+      - app-db:/data/db # Memakai volume bernama app-db dengan target /data/db di container    
+volumes:
+  app-db:
