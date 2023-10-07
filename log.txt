@@ -1,70 +1,61 @@
-3: Pulling from library/mongo
-Digest: sha256:146c1fd999a660e697aac40bc6da842b005c7868232eb0b7d8996c8f3545b05d
-Status: Downloaded newer image for mongo:3
-v1: Pulling from irfansettz/item-app
-Digest: sha256:33b524ea70f229ded78cdd51a0f09e5ff52fa028c9afb40f4d576083d528299a
-Status: Downloaded newer image for irfansettz/item-app:v1
-
-docker logs a433-microservices_item-app_1
-
-> docker-software-delivery@1.0.0 preinstall /app
-> npx npm-force-resolutions
-
-audited 662 packages in 14.49s
-
-7 packages are looking for funding
-  run `npm fund` for details
-
-found 96 vulnerabilities (20 low, 25 moderate, 41 high, 10 critical)
-  run `npm audit fix` to fix them, or `npm audit` for details
-
-> docker-software-delivery@1.0.0 build /app
-> node ./node_modules/gulp/bin/gulp.js
-
-[12:00:24] Using gulpfile /app/gulpfile.js
-[12:00:24] Starting 'scripts'...
-[12:00:28] Finished 'scripts' after 3.73 s
-[12:00:28] Starting 'default'...
-[12:00:28] Finished 'default' after 30 μs
-
-> docker-software-delivery@1.0.0 start /app
-> node ./bin/www
-
-NODE_ENV: production
-Connected to database
-
-docker logs a433-microservices_item-db_1
-
-2023-01-26T12:00:08.904+0000 I CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/data/db 64-bit host=766395a3780e
-2023-01-26T12:00:08.904+0000 I CONTROL  [initandlisten] db version v3.6.23
-2023-01-26T12:00:08.904+0000 I CONTROL  [initandlisten] git version: d352e6a4764659e0d0350ce77279de3c1f243e5c
-2023-01-26T12:00:08.904+0000 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2g  1 Mar 2016
-2023-01-26T12:00:08.904+0000 I CONTROL  [initandlisten] allocator: tcmalloc
-2023-01-26T12:00:08.904+0000 I CONTROL  [initandlisten] modules: none
-2023-01-26T12:00:08.904+0000 I CONTROL  [initandlisten] build environment:
-2023-01-26T12:00:08.904+0000 I CONTROL  [initandlisten]     distmod: ubuntu1604
-2023-01-26T12:00:08.904+0000 I CONTROL  [initandlisten]     distarch: x86_64
-2023-01-26T12:00:08.904+0000 I CONTROL  [initandlisten]     target_arch: x86_64
-2023-01-26T12:00:08.904+0000 I CONTROL  [initandlisten] options: { net: { bindIpAll: true } }
-2023-01-26T12:00:08.904+0000 W -        [initandlisten] Detected unclean shutdown - /data/db/mongod.lock is not empty.
-2023-01-26T12:00:08.905+0000 I -        [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
-2023-01-26T12:00:08.905+0000 W STORAGE  [initandlisten] Recovering data from the last clean checkpoint.
-2023-01-26T12:00:08.905+0000 I STORAGE  [initandlisten] 
-2023-01-26T12:00:08.905+0000 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
-2023-01-26T12:00:08.905+0000 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
-2023-01-26T12:00:08.905+0000 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=5457M,cache_overflow=(file_max=0M),session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),compatibility=(release="3.0",require_max="3.0"),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
-2023-01-26T12:00:09.623+0000 I STORAGE  [initandlisten] WiredTiger message [1674734409:623303][1:0x7efd814d7a40], txn-recover: Main recovery loop: starting at 5/4352
-2023-01-26T12:00:09.623+0000 I STORAGE  [initandlisten] WiredTiger message [1674734409:623657][1:0x7efd814d7a40], txn-recover: Recovering log 5 through 6
-2023-01-26T12:00:09.676+0000 I STORAGE  [initandlisten] WiredTiger message [1674734409:676949][1:0x7efd814d7a40], txn-recover: Recovering log 6 through 6
-2023-01-26T12:00:09.720+0000 I STORAGE  [initandlisten] WiredTiger message [1674734409:720701][1:0x7efd814d7a40], txn-recover: Set global recovery timestamp: 0
-2023-01-26T12:00:09.794+0000 I CONTROL  [initandlisten] 
-2023-01-26T12:00:09.794+0000 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
-2023-01-26T12:00:09.794+0000 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
-2023-01-26T12:00:09.794+0000 I CONTROL  [initandlisten] 
-2023-01-26T12:00:09.797+0000 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
-2023-01-26T12:00:09.797+0000 I NETWORK  [initandlisten] listening via socket bound to 0.0.0.0
-2023-01-26T12:00:09.798+0000 I NETWORK  [initandlisten] listening via socket bound to /tmp/mongodb-27017.sock
-2023-01-26T12:00:09.798+0000 I NETWORK  [initandlisten] waiting for connections on port 27017
-2023-01-26T12:00:10.015+0000 I FTDC     [ftdc] Unclean full-time diagnostic data capture shutdown detected, found interim file, some metrics may have been lost. OK
-2023-01-26T12:00:29.182+0000 I NETWORK  [listener] connection accepted from 172.20.0.3:46320 #1 (1 connection now open)
-2023-01-26T12:00:29.188+0000 I NETWORK  [conn1] received client metadata from 172.20.0.3:46320 conn1: { driver: { name: "nodejs", version: "2.2.36" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "5.4.0-137-generic" }, platform: "Node.js v14.21.2, LE, mongodb-core: 2.1.20" }
+Attaching to a433-microservices-item-app-1, a433-microservices-item-db-1
+a433-microservices-item-db-1   | 2023-10-07T18:09:11.332+0000 I CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/data/db 64-bit host=87a1f69baf84
+a433-microservices-item-db-1   | 2023-10-07T18:09:11.332+0000 I CONTROL  [initandlisten] db version v3.6.23
+a433-microservices-item-db-1   | 2023-10-07T18:09:11.332+0000 I CONTROL  [initandlisten] git version: d352e6a4764659e0d0350ce77279de3c1f243e5c
+a433-microservices-item-db-1   | 2023-10-07T18:09:11.332+0000 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2g  1 Mar 2016
+a433-microservices-item-db-1   | 2023-10-07T18:09:11.332+0000 I CONTROL  [initandlisten] allocator: tcmalloc
+a433-microservices-item-db-1   | 2023-10-07T18:09:11.332+0000 I CONTROL  [initandlisten] modules: none
+a433-microservices-item-db-1   | 2023-10-07T18:09:11.332+0000 I CONTROL  [initandlisten] build environment:
+a433-microservices-item-db-1   | 2023-10-07T18:09:11.332+0000 I CONTROL  [initandlisten]     distmod: ubuntu1604
+a433-microservices-item-db-1   | 2023-10-07T18:09:11.332+0000 I CONTROL  [initandlisten]     distarch: aarch64
+a433-microservices-item-db-1   | 2023-10-07T18:09:11.332+0000 I CONTROL  [initandlisten]     target_arch: aarch64
+a433-microservices-item-db-1   | 2023-10-07T18:09:11.332+0000 I CONTROL  [initandlisten] options: { net: { bindIpAll: true } }
+a433-microservices-item-db-1   | 2023-10-07T18:09:11.332+0000 I -        [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+a433-microservices-item-db-1   | 2023-10-07T18:09:11.332+0000 I STORAGE  [initandlisten] 
+a433-microservices-item-db-1   | 2023-10-07T18:09:11.332+0000 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+a433-microservices-item-db-1   | 2023-10-07T18:09:11.332+0000 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+a433-microservices-item-db-1   | 2023-10-07T18:09:11.332+0000 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3413M,cache_overflow=(file_max=0M),session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),compatibility=(release="3.0",require_max="3.0"),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+a433-microservices-item-db-1   | 2023-10-07T18:09:11.560+0000 I STORAGE  [initandlisten] WiredTiger message [1696702151:560755][1:0xffff9f0eb000], txn-recover: Main recovery loop: starting at 1/21376
+a433-microservices-item-db-1   | 2023-10-07T18:09:11.619+0000 I STORAGE  [initandlisten] WiredTiger message [1696702151:619695][1:0xffff9f0eb000], txn-recover: Recovering log 1 through 2
+a433-microservices-item-db-1   | 2023-10-07T18:09:11.659+0000 I STORAGE  [initandlisten] WiredTiger message [1696702151:659025][1:0xffff9f0eb000], txn-recover: Recovering log 2 through 2
+a433-microservices-item-db-1   | 2023-10-07T18:09:11.687+0000 I STORAGE  [initandlisten] WiredTiger message [1696702151:687281][1:0xffff9f0eb000], txn-recover: Set global recovery timestamp: 0
+a433-microservices-item-db-1   | 2023-10-07T18:09:11.694+0000 I CONTROL  [initandlisten] 
+a433-microservices-item-db-1   | 2023-10-07T18:09:11.694+0000 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+a433-microservices-item-db-1   | 2023-10-07T18:09:11.694+0000 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+a433-microservices-item-db-1   | 2023-10-07T18:09:11.694+0000 I CONTROL  [initandlisten] 
+a433-microservices-item-db-1   | 2023-10-07T18:09:11.697+0000 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+a433-microservices-item-db-1   | 2023-10-07T18:09:11.697+0000 I NETWORK  [initandlisten] listening via socket bound to 0.0.0.0
+a433-microservices-item-db-1   | 2023-10-07T18:09:11.697+0000 I NETWORK  [initandlisten] listening via socket bound to /tmp/mongodb-27017.sock
+a433-microservices-item-db-1   | 2023-10-07T18:09:11.697+0000 I NETWORK  [initandlisten] waiting for connections on port 27017
+a433-microservices-item-app-1  | 
+a433-microservices-item-app-1  | > docker-software-delivery@1.0.0 preinstall /app
+a433-microservices-item-app-1  | > npx npm-force-resolutions
+a433-microservices-item-app-1  | 
+a433-microservices-item-app-1  | audited 662 packages in 10.383s
+a433-microservices-item-app-1  | 
+a433-microservices-item-app-1  | 7 packages are looking for funding
+a433-microservices-item-app-1  |   run `npm fund` for details
+a433-microservices-item-app-1  | 
+a433-microservices-item-app-1  | found 101 vulnerabilities (7 low, 34 moderate, 47 high, 13 critical)
+a433-microservices-item-app-1  |   run `npm audit fix` to fix them, or `npm audit` for details
+a433-microservices-item-app-1  | 
+a433-microservices-item-app-1  | > docker-software-delivery@1.0.0 build /app
+a433-microservices-item-app-1  | > node ./node_modules/gulp/bin/gulp.js
+a433-microservices-item-app-1  | 
+a433-microservices-item-app-1  | [18:09:22] Using gulpfile /app/gulpfile.js
+a433-microservices-item-app-1  | [18:09:22] Starting 'scripts'...
+a433-microservices-item-app-1  | [18:09:24] Finished 'scripts' after 1.62 s
+a433-microservices-item-app-1  | [18:09:24] Starting 'default'...
+a433-microservices-item-app-1  | [18:09:24] Finished 'default' after 13 μs
+a433-microservices-item-app-1  | 
+a433-microservices-item-app-1  | > docker-software-delivery@1.0.0 start /app
+a433-microservices-item-app-1  | > node ./bin/www
+a433-microservices-item-app-1  | 
+a433-microservices-item-app-1  | NODE_ENV: production
+a433-microservices-item-db-1   | 2023-10-07T18:09:24.318+0000 I NETWORK  [listener] connection accepted from 172.19.0.3:51750 #1 (1 connection now open)
+a433-microservices-item-db-1   | 2023-10-07T18:09:24.320+0000 I NETWORK  [conn1] received client metadata from 172.19.0.3:51750 conn1: { driver: { name: "nodejs", version: "2.2.36" }, os: { type: "Linux", name: "linux", architecture: "arm64", version: "6.4.16-linuxkit" }, platform: "Node.js v14.21.3, LE, mongodb-core: 2.1.20" }
+a433-microservices-item-app-1  | Connected to database
+a433-microservices-item-app-1  | [0mGET / [36m304 [0m113.612 ms - -[0m
+a433-microservices-item-app-1  | [0mGET /javascripts/dist/dist.min.js [32m200 [0m8.650 ms - 186999[0m
+a433-microservices-item-app-1  | [0mGET /stylesheets/style.css [32m200 [0m11.817 ms - 519[0m
+a433-microservices-item-app-1  | [0mGET /api [36m304 [0m3.965 ms - -[0m
